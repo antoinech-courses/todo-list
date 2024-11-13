@@ -25,7 +25,7 @@ export async function listLists(this: any,
     for await (const [, value] of listsIter) {
       result.push(JSON.parse(value))
     }
-    reply.send({ data: result })
+    reply.send(result)
   }  
 
 

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ITodoList": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "ITodoItem#"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ITodoItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "$ref": "PENDING#"
+            },
+            {
+              "$ref": "IN_PROGRESS#"
+            },
+            {
+              "$ref": "DONE#"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "PENDING": {
+      "type": "string",
+      "const": "PENDING"
+    },
+    "IN_PROGRESS": {
+      "type": "string",
+      "const": "IN-PROGRESS"
+    },
+    "DONE": {
+      "type": "string",
+      "const": "DONE"
+    }
+  }
+}

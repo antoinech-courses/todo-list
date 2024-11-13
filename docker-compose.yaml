@@ -1,0 +1,9 @@
+services:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+  web:
+    image: "todo-front:1"
+    ports:
+      - "3001:3006"
